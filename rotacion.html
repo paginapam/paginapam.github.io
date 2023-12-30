@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio</title>
+    <link rel="stylesheet" href="stylesrotacion.css">
+</head>
+
+<body>
+    <div id="stars"></div>
+    <div id="palabra">Tal vez no pueda llevarte al espacio, pero haré todo para que te sientas en el</div>
+    <div class="container">
+        <div class="sol"></div>
+        <div class="tierra">
+            <div class="luna"></div>
+        </div>
+    </div>
+    <button id="boton" onclick="window.location.href='index.html'">
+        <span>Menu</span>
+    </button>
+    <script>
+        const stars = document.getElementById('stars');
+
+        for (let i = 0; i < 4500; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = Math.random() * window.innerHeight + 'px';
+            star.style.left = Math.random() * window.innerWidth + 'px';
+            stars.appendChild(star);
+        }
+
+        for (let i = 0; i < 10; i++) {
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            shootingStar.style.top = Math.random() * window.innerHeight + 'px';
+            shootingStar.style.left = Math.random() * window.innerWidth + 'px';
+            stars.appendChild(shootingStar);
+        }
+    </script>
+</body>
+
+</html>

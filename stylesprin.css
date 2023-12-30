@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('f6.jpeg');
+    /* Ruta de la imagen de fondo. */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#frase {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: blanchedalmond;
+}
+
+#botones {
+    display: flex;
+}
+
+button {
+    border: 0;
+    margin: 10px;
+    background-image: linear-gradient(150deg, #9500ff, #09f, #00DDFF);
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button span {
+    background-color: #48D1CC;
+    padding: 18px 26px;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+button:hover span {
+    background: none;
+}
+
+button:active {
+    transform: scale(0.9);
+}

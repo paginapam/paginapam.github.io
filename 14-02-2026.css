@@ -285,3 +285,51 @@ footer {
   color: var(--text-main);
   font-size: 0.9rem;
 }
+
+/* --- ESTILOS DEL BUZÓN DE RECUERDOS --- */
+.memory-text {
+  width: 100%;
+  height: 100px;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid var(--timeline-line);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  resize: none; /* Evita que le cambien el tamaño */
+  outline: none;
+  box-sizing: border-box; /* Para que el padding no rompa el ancho */
+  transition: border-color 0.3s;
+}
+
+.memory-text:focus {
+  border-color: var(--accent); /* Se pone del color principal al escribir */
+}
+
+/* --- BOTÓN DE MENÚ AL FINAL --- */
+.bottom-menu-container {
+  text-align: center;
+  margin: 40px 0; /* Espacio arriba y abajo */
+}
+
+.menu-link-btn {
+  display: inline-block;
+  background-color: var(--accent); /* Mismo color rosa/rojo del tema */
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none; /* Quita el subrayado feo de los links */
+  box-shadow: 0 5px 15px var(--shadow);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s;
+}
+
+.menu-link-btn:hover {
+  transform: scale(1.1); /* Crece un poquito al pasar el mouse */
+  background-color: #ff4757; /* Se pone un poco más oscuro */
+}

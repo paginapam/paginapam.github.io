@@ -117,5 +117,31 @@ function updateToggleIcon(theme) {
   themeToggleBtn.textContent = theme === "dark" ? "☀️" : "🌓";
 }
 
+// --- FUNCIONALIDAD 4: ENVIAR RECUERDO POR WHATSAPP ---
+const sendBtn = document.getElementById("send-whatsapp-btn");
+const memoryInput = document.getElementById("memory-input");
+
+// REEMPLAZA: Pon aquí tu número de teléfono con código de país (ej: 521...)
+// Sin espacios ni guiones. Ejemplo México: 5219991234567
+const myPhoneNumber = "521NUMEROAQUI";
+
+sendBtn.addEventListener("click", () => {
+  const memory = memoryInput.value;
+
+  if (memory.trim() === "") {
+    alert("¡Escribe un recuerdo bonito primero! 😉");
+    return;
+  }
+
+  // Crear el mensaje para WhatsApp
+  // %0A es un salto de línea en código URL
+  const message = `Hola amor ❤️, me acordé de este momento y quiero que lo guardemos:%0A%0A"${memory}"`;
+
+  // Crear el link de WhatsApp
+  const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${message}`;
+
+  // Abrir WhatsApp en una nueva pestaña
+  window.open(whatsappUrl, "_blank");
+});
 // Iniciar al cargar
 window.onload = typeWriterEffect;

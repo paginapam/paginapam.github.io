@@ -138,7 +138,7 @@ sendBtn.addEventListener("click", () => {
   const message = `Hola amor ❤️, me acordé de este momento y quiero que lo guardemos:%0A%0A"${memory}"`;
 
   // Crear el link de WhatsApp
-  const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${message}`;
+  const whatsappUrl = `https://wa.me/${9994159987}?text=${message}`;
 
   // Abrir WhatsApp en una nueva pestaña
   window.open(whatsappUrl, "_blank");

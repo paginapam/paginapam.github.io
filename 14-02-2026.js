@@ -3,7 +3,7 @@
 // 1. TEXTO DE BIENVENIDA (Máquina de escribir)
 // Puedes cambiar el mensaje entre las comillas. \n significa "salto de línea".
 const welcomeMessage =
-  "Hola mi amor ❤️\nHe programado este pequeño espacio\npara recordarte lo increíble que eres.\n¡Feliz San Valentín!";
+  "Hola mi amor ❤️\nHe programado este pequeño espacio\npara recordarte siempre lo mucho que te amo\n¡Feliz San Valentín!";
 
 // 2. LISTA DE RAZONES (La base de datos del amor)
 const reasonsArray = [

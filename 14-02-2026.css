@@ -1,0 +1,287 @@
+/* --- RESET BÁSICO Y VARIABLES --- */
+:root {
+  /* --- PALETA MODO CLARO (Romántico) --- */
+  --bg-main: #fff5f8; /* Fondo rosita muy claro */
+  --text-main: #5a4a4a; /* Texto gris cálido */
+  --accent: #ff6b81; /* Rosa fuerte para botones y detalles */
+  --card-bg: #ffffff; /* Fondo de las tarjetas */
+  --timeline-line: #ffd1dc; /* Color de la línea del tiempo */
+  --shadow: rgba(255, 107, 129, 0.2); /* Sombra suave */
+}
+
+/* --- PALETA MODO OSCURO (Elegante) --- */
+[data-theme="dark"] {
+  --bg-main: #1a1a2e; /* Azul noche profundo */
+  --text-main: #e0e0e0; /* Texto claro */
+  --accent: #ff4757; /* Rojo intenso vibrante */
+  --card-bg: #252542; /* Fondo de tarjetas oscuro */
+  --timeline-line: #ff4757; /* Línea roja */
+  --shadow: rgba(0, 0, 0, 0.5); /* Sombra fuerte */
+}
+
+/* Transición suave para todo el sitio al cambiar de tema */
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+  overflow-x: hidden; /* Evita scroll horizontal indeseado */
+}
+
+/* --- COMPONENTES GLOBALES --- */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-family: "Dancing Script", cursive; /* Fuente estilo manuscrito */
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+
+.main-btn {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.main-btn:hover {
+  transform: scale(1.05); /* Efecto de crecer al pasar el mouse */
+}
+
+/* --- BOTÓN FLOTANTE DE TEMA --- */
+.floating-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card-bg);
+  border: 2px solid var(--accent);
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100; /* Asegura que esté siempre encima */
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+/* --- SECCIÓN 1: HÉROE (Máquina de Escribir) --- */
+.hero {
+  height: 100vh; /* Ocupa toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1)
+  ); /* Sutil capa encima del fondo */
+}
+
+#typewriter-text {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  color: var(--accent);
+  min-height: 60px; /* Evita saltos cuando no hay texto */
+}
+
+/* El cursor parpadeante de la máquina de escribir */
+#typewriter-text::after {
+  content: "|";
+  margin-left: 5px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* --- SECCIÓN 2: LÍNEA DEL TIEMPO (Responsive Avanzado) --- */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* La línea vertical central */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background-color: var(--timeline-line);
+  top: 0;
+  bottom: 0;
+  left: 50%; /* Centrada por defecto */
+  margin-left: -2px;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* Los círculos en la línea */
+.timeline-item::after {
+  content: "❤️"; /* Puedes cambiar esto por un círculo simple '' */
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -12.5px;
+  background-color: var(--card-bg);
+  border: 3px solid var(--accent);
+  top: 20px;
+  border-radius: 50%;
+  z-index: 1;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para los elementos a la izquierda y derecha */
+.left {
+  left: 0;
+}
+.right {
+  left: 50%;
+}
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid var(--card-bg);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent var(--card-bg);
+}
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid var(--card-bg);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent var(--card-bg) transparent transparent;
+}
+.right::after {
+  left: -12.5px;
+}
+
+/* El contenido dentro de las cajas de la línea de tiempo */
+.timeline .content {
+  padding: 20px;
+  background-color: var(--card-bg);
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--shadow);
+}
+
+.date {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 10px;
+}
+.timeline-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* --- MEDIA QUERIES (Para celulares) --- */
+/* Si la pantalla es menor a 768px (celulares), cambiamos el diseño de la línea del tiempo a una sola columna */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  } /* Mueve la línea a la izquierda */
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  .timeline-item::before {
+    left: 60px;
+    border: medium solid var(--card-bg);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--card-bg) transparent transparent;
+  }
+  .left::after,
+  .right::after {
+    left: 18.5px;
+  }
+  .right {
+    left: 0%;
+  }
+  #typewriter-text {
+    font-size: 2rem;
+  } /* Texto más pequeño en celular */
+}
+
+/* --- SECCIÓN 3: GENERADOR --- */
+.generator-card {
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px var(--shadow);
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.quote-box {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--accent);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-family: "Dancing Script", cursive;
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
